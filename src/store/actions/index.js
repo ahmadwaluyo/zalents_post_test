@@ -75,7 +75,10 @@ export const postRegister = (body) => {
                 type: actionTypes.SET_REGISTER,
                 token: data.auth_token,
                 message: data.message
-            })
+            });
+            notification.success({
+                message: 'account successfully registered !'
+            });
         })
         .catch(err => {
             dispatch({
@@ -84,7 +87,10 @@ export const postRegister = (body) => {
                     title: 'ERROR REGISTER ACCOUNT!',
                     body: 'Your input is invalid !'
                 }
-            })
+            });
+            notification.error({
+                message: 'Your input is invalid !'
+            });
         })
     }
 }
