@@ -43,7 +43,7 @@ const LoginForm = () => {
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
-    })
+    });
 
     return (
         <div className="container-login">
