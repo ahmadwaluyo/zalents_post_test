@@ -61,34 +61,6 @@ Layout Style */
 	color: #fff;
 }
 
-@media screen and (min-width: 450px) {
-	.layout {
-		position: relative;
-		height: fit-content;
-	}
- }
-  
- /*untuk layar device berukuran sedang*/
- @media screen and (min-width: 550px) {
-	.layout {
-		position: relative;
-		height: fit-content;
-	}
- }
-  
- /*untuk layar device berukuran besar*/
- @media screen and (min-width: 800px) {
-	.container {
-		width: 800px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.layout {
-		position: relative;
-		height: 100vh;
-	}
- }
-
 #components-layout-demo-responsive .logo {
   /* height: 32px; */
   margin: 16px;
@@ -425,3 +397,141 @@ login */
 .sign-btn {
 	margin-top: 20px;
 }
+
+@media screen and (max-device-width: 450px), (max-device-width: 550px)  {
+	.layout {
+		position: relative;
+		height: fit-content;
+	}
+	.container-login {
+		padding: 50px;
+		display: flex;
+		height: 100vh;
+	}
+	.container-login h1 {
+		font-size: large;
+	}
+	.container-login .social-container {
+		margin: 20px 0;
+	}
+	.container-login .form-container {
+		padding-top: 50px;
+		width: 100%;
+	}
+	.container-login .overlay-container {
+		display: none;
+	}
+	.container-login .responsive-btn {
+		background-color: #52c41a;
+		border-color: #52c41a;
+		line-height: 10px;
+		display: inline-block;
+		font-size: 12px !important;
+	}
+	.sign-btn {
+		line-height: 10px;
+		margin-bottom: auto;
+	}
+	/* .container-login .sign-in-container {
+		display: flex !important;
+		justify-content: space-around;
+		padding-top: 5rem !important;
+	} */
+	.container-login .sign-up-container {
+		width: 100%;
+		opacity: 0;
+		margin-left: -50%;
+	}
+	.container-login .container.right-panel-active .sign-up-container {
+		transform: translateX(100%);
+		opacity: 1;
+		z-index: 5;
+		animation: show 0.6s;
+	}
+	.container-login .container.right-panel-active .sign-in-container {
+		transform: translateX(100%);
+	}	
+	.container-login .sign-up-container {
+		left: 0;
+		width: 100%;
+		opacity: 0;
+		z-index: 1;
+	}
+	
+	.container-login .container.right-panel-active .sign-up-container {
+		transform: translateX(50%);
+		opacity: 1;
+		z-index: 5;
+		animation: show 0.6s;
+	}
+	
+	@keyframes show {
+		0%, 49.99% {
+			opacity: 0;
+			z-index: 1;
+		}
+		
+		50%, 100% {
+			opacity: 1;
+			z-index: 5;
+		}
+	}
+	
+	.container-login .overlay-panel {
+		/* position: absolute; */
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		flex-direction: column;
+		padding: 0 20px;
+		margin-top: auto;
+		text-align: center;
+		bottom: 20px;
+		height: 100%;
+		width: 100%;
+	}
+	
+	.container-login .overlay-left {
+		transform: translateX(-50%);
+	}
+	
+	.container-login .container.right-panel-active .overlay-left {
+		transform: translateX(0);
+	}
+	
+	.container-login .overlay-right {
+		right: 0;
+		transform: translateX(0);
+	}
+	
+	.container-login .container.right-panel-active .overlay-right {
+		transform: translateX(50%);
+	}
+ }
+  
+ /*untuk layar device berukuran sedang*/
+ @media screen and (min-width: 550px) {
+	.layout {
+		position: relative;
+		height: fit-content;
+	}
+ }
+  
+ /*untuk layar device berukuran besar*/
+ @media screen and (min-width: 800px) {
+	.container {
+		width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.layout {
+		position: relative;
+		height: 100vh;
+	}
+	.container-login .responsive-btn, .responsive-span {
+		display: none;
+	}
+	.container-login .overlay-container {
+		display:-webkit-box;
+	}
+ }

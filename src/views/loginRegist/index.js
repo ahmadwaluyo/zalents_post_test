@@ -34,6 +34,8 @@ const LoginForm = () => {
     useEffect(() => {
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
+        const signUpButtonResponsive = document.getElementById('signUpResponsive');
+        const signInButtonResponsive = document.getElementById('signInResponsive');
         const container = document.getElementById('container');
 
         signUpButton.addEventListener('click', () => {
@@ -41,6 +43,14 @@ const LoginForm = () => {
         });
 
         signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });
+
+        signUpButtonResponsive.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButtonResponsive.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
     });
@@ -58,6 +68,10 @@ const LoginForm = () => {
                         <input type="password" placeholder="Confirm Password" value={state.confirmPassword} onChange={(e) => setState({...state, confirmPassword: e.target.value})} />
                         <button className="sign-btn" onClick={(e) => onFinish('register', e)}>Sign Up</button>
                     </form>
+                    <div className="overlay-panel overlay-left">
+                        <span className="responsive-span">you don't have account ?</span>
+                        <button className="responsive-btn" id="signInResponsive">Sign In</button>
+                    </div>
                 </div>
                 <div className="form-container sign-in-container">
                     <form>
@@ -72,6 +86,10 @@ const LoginForm = () => {
                         <input type="password" placeholder="Password" value={state.password} onChange={(e) => setState({...state, password: e.target.value})} />
                         <button className="sign-btn" onClick={(e) => onFinish('login', e)}>Sign In</button>
                     </form>
+                    <div className="overlay-panel overlay-right">
+                        <span className="responsive-span">already have account ?</span>
+                        <button className="responsive-btn" id="signUpResponsive">Sign Up</button>
+                    </div>
                 </div>
                 <div className="overlay-container">
                     <div className="overlay">
